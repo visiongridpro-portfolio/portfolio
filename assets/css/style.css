@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0b0b0b;
+  color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  align-items: center;
+}
+
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn {
+  background: orange;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  padding: 80px 60px;
+  gap: 40px;
+}
+
+.hero-text h1 {
+  font-size: 70px;
+}
+
+.hero-image {
+  width: 400px;
+  height: 500px;
+  background: linear-gradient(135deg, orange, red);
+  border-radius: 30px;
+}
+
+/* ABOUT */
+.about {
+  display: flex;
+  padding: 80px 60px;
+  gap: 40px;
+}
+
+.about-image {
+  width: 350px;
+  height: 450px;
+  background: linear-gradient(135deg, #ff6a00, #ff0000);
+  border-radius: 30px;
+}
+
+/* SERVICES */
+.services {
+  padding: 80px 60px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #151515;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+/* WORK */
+.work {
+  padding: 80px 60px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.work-card {
+  height: 200px;
+  background: #1c1c1c;
+  border-radius: 20px;
+}
+
+/* PRICING */
+.pricing {
+  padding: 80px 60px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.price-card {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.highlight {
+  background: orange;
+  color: black;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px;
+  background: #111;
+}
