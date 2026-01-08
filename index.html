@@ -1,148 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        :root {
-            --bg: #f0f0f0;
-            --text: #333;
-            --accent: #007bff;
-        }
-        body.dark {
-            --bg: #121212;
-            --text: #f0f0f0;
-            --accent: #0d6efd;
-        }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            transition: 0.3s;
-        }
-        header {
-            background: var(--accent);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            position: relative;
-        }
-        #dark-toggle {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 1rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-        section {
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        #home {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1600x900/?code') no-repeat center/cover;
-            color: white;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .skills grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        .project {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 8px;
-        }
-        footer {
-            background: var(--accent);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+/* ========== ROOT THEME ========== */
+:root {
+  --bg: #f0f0f0;
+  --text: #333;
+  --accent: #007bff;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f0f0f0;
+  --accent: #0d6efd;
+}
+
+/* ========== GLOBAL RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ========== HEADER / NAVBAR ========== */
+header {
+  background: rgba(0, 123, 255, 0.9);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+#dark-toggle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* ========== HOME ========== */
+#home {
+  min-height: 100vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)
+  ), url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97") center/cover no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#home h2 {
+  font-size: 3rem;
+  animation: slideDown 1s ease-out;
+}
+
+#home p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  animation: fadeIn 2s ease-out;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========== SKILLS ========== */
+.skills.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.skills.grid div {
+  background: rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skills.grid div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+body.dark .skills.grid div {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ========== PROJECTS ========== */
+#projects {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.project {
+  background: rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+body.dark .project {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--accent);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav ul li {
+    display: block;
+    margin: 0.7rem 0;
+  }
+
+  #home h2 {
+    font-size: 2rem;
+  }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <button id="dark-toggle">🌙</button>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home">
-        <h2>Hi, I'm a Web Developer</h2>
-        <p>Building awesome websites with modern tech</p>
-    </section>
+<header>
+  <h1>Your Name</h1>
+  <button id="dark-toggle">🌙</button>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>मैं एक passionate developer हूँ। HTML, CSS, JS, React आदि में expert।</p>
-    </section>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section id="skills" class="skills grid">
-        <h2>Skills</h2>
-        <div>HTML & CSS</div>
-        <div>JavaScript</div>
-        <div>React</div>
-        <div>Node.js</div>
-        <div>Git & GitHub</div>
-    </section>
+<section id="home">
+  <h2>Hi, I'm a Web Developer</h2>
+  <p>Building awesome websites with modern tech</p>
+</section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Description here. Link: <a href="#">Live Demo</a></p>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description here.</p>
-        </div>
-    </section>
+<section id="about">
+  <h2>About Me</h2>
+  <p>मैं एक passionate developer हूँ। HTML, CSS, JS और modern tools पर काम करता हूँ।</p>
+</section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: your@email.com</p>
-        <p>LinkedIn: linkedin.com/in/yourprofile</p>
-    </section>
+<section id="skills" class="skills grid">
+  <div>HTML & CSS</div>
+  <div>JavaScript</div>
+  <div>React</div>
+  <div>Node.js</div>
+  <div>Git & GitHub</div>
+</section>
 
-    <footer>
-        &copy; 2026 Your Name. All rights reserved.
-    </footer>
+<section id="projects">
+  <h2>Projects</h2>
 
-    <script>
-        const toggle = document.getElementById('dark-toggle');
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-        });
-    </script>
+  <div class="project">
+    <h3>Project One</h3>
+    <p>Portfolio Website</p>
+  </div>
+
+  <div class="project">
+    <h3>Project Two</h3>
+    <p>Landing Page Design</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+  <p>LinkedIn: linkedin.com/in/yourprofile</p>
+</section>
+
+<footer>
+  &copy; 2026 Your Name. All rights reserved.
+</footer>
+
+<script>
+const toggle = document.getElementById("dark-toggle");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+});
+</script>
+
 </body>
 </html>
