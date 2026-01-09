@@ -1,0 +1,13 @@
+<section class="page">
+  <h2>Contact Me</h2>
+
+  <p>Email: yourmail@gmail.com</p>
+  <p>Instagram: @yourhandle</p>
+
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Message"></textarea>
+    <button>Send</button>
+  </form>
+</section>
